@@ -1,0 +1,28 @@
+{
+  "name": "performance_stat_agent",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint *.js",
+    "commitmsg": "validate-commit-msg"
+  },
+  "author": "brick9527<brick9527@foxmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cpu-stat": "^2.0.1",
+    "cron": "^1.8.2",
+    "dayjs": "^1.11.0",
+    "disk-stat": "^1.0.4",
+    "mem-stat": "^1.0.5",
+    "nanoid": "^3.3.2",
+    "ps-list": "^7.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "husky": "^7.0.4",
+    "prettier-eslint": "^13.0.0",
+    "validate-commit-msg": "^2.14.0"
+  }
+}
