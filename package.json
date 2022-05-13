@@ -2,7 +2,7 @@
   "name": "performance_stat_agent",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "./node_modules/.bin/eslint *.js",
@@ -11,11 +11,15 @@
   "author": "brick9527<brick9527@foxmail.com>",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^5.0.1",
     "cpu-stat": "^2.0.1",
     "cron": "^1.8.2",
     "dayjs": "^1.11.0",
     "disk-stat": "^1.0.4",
+    "joi": "^17.6.0",
+    "lodash": "^4.17.21",
     "mem-stat": "^1.0.5",
+    "meow": "^9.0.0",
     "nanoid": "^3.3.2",
     "ps-list": "^7.2.0"
   },
