@@ -8,4 +8,4 @@ module.exports = function(dataStr) {
   client.send(message, 41234, '127.0.0.1', (err) => {
     console.log(err);
   });
-}
+};

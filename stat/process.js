@@ -1,9 +1,7 @@
 const psList = require('ps-list');
 const dayjs = require('dayjs');
 
-const appendFile = require('../libs/apend_file');
-
-module.exports = async function (batchId, targetProcessStatFilePath) {
+module.exports = async function (batchId) {
   const procssList = await psList();
 
   const shortProcessList = procssList
@@ -17,25 +15,11 @@ module.exports = async function (batchId, targetProcessStatFilePath) {
     type: 'process',
     timestamp,
     batchId,
-    list: shortProcessList,
+    list: shortProcessList.map(processItem => {
+      processItem.cmd = encodeURIComponent(processItem.cmd);
+      return processItem;
+    }),
   };
-
-  const processStatDataList = shortProcessList.map(processItem => {
-    return [
-      'process',
-      timestamp,
-      batchId,
-      processItem.pid,
-      processItem.ppid,
-      processItem.uid,
-      processItem.cpu,
-      processItem.memory,
-      processItem.name,
-      encodeURIComponent(processItem.cmd),
-    ].join(', ');
-  });
-
-  appendFile(targetProcessStatFilePath, processStatDataList.join('\n') + '\n');
 
   return processStatData;
 };

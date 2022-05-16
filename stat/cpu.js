@@ -1,9 +1,7 @@
 const cpuStat = require('cpu-stat');
 const dayjs = require('dayjs');
 
-const appendFile = require('../libs/apend_file');
-
-function _getSingleCoreStat(coreIndex, batchId, targetCPUStatFilePath) {
+function _getSingleCoreStat(coreIndex, batchId) {
   return new Promise((resolve, reject) => {
     cpuStat.usagePercent(
       {
@@ -25,9 +23,6 @@ function _getSingleCoreStat(coreIndex, batchId, targetCPUStatFilePath) {
           usedPercent,
         };
 
-        const statDataList = ['cpu', timestamp, batchId, coreIndex, usedPercent];
-        appendFile(targetCPUStatFilePath, statDataList.join(', ') + '\n');
-
         resolve(statData);
       }
     );
@@ -39,11 +34,11 @@ function _getSingleCoreStat(coreIndex, batchId, targetCPUStatFilePath) {
  * | 时间 | CPU核数index | 使用率| 
  * @returns 
  */
-module.exports = function (batchId, targetCPUStatFilePath) {
+module.exports = function (batchId) {
   const totalCores = cpuStat.totalCores();
   const getCPUStatFuncList = [];
   for (let coreIndex = 0; coreIndex < totalCores; coreIndex++) {
-    getCPUStatFuncList.push(_getSingleCoreStat(coreIndex, batchId, targetCPUStatFilePath));
+    getCPUStatFuncList.push(_getSingleCoreStat(coreIndex, batchId));
   }
   return getCPUStatFuncList;
 };

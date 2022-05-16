@@ -11,7 +11,7 @@
   "author": "brick9527<brick9527@foxmail.com>",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^5.0.1",
+    "chalk": "^4.1.2",
     "cpu-stat": "^2.0.1",
     "cron": "^1.8.2",
     "dayjs": "^1.11.0",
