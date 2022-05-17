@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const argvSchema = Joi.object().keys({
-  interval: Joi.number().optional().default(5),
+  interval: Joi.number().optional(),
   protocol: Joi.string().valid('udp').optional(),
   host: Joi.when('protocol', {
     is: 'udp',

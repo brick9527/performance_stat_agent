@@ -3,9 +3,20 @@ const { Buffer } = require('buffer');
 
 const client = dgram.createSocket('udp4');
 
-module.exports = function(dataStr) {
+/**
+ * 发送udp数据报
+ * @param {*} argv
+ * @param {Object} data 
+ * @returns 
+ */
+module.exports = function(argv, data) {
+  if (argv.protocol !== 'udp') {
+    return;
+  }
+  
+  const dataStr = JSON.stringify(data);
   const message = Buffer.from(dataStr);
-  client.send(message, 41234, '127.0.0.1', (err) => {
+  client.send(message, argv.port, argv.host, (err) => {
     console.log(err);
   });
 };
