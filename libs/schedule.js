@@ -12,6 +12,6 @@ function _getAllPerformanceAndSend(argvs) {
 }
 
 module.exports = function(argvs) {
-  const stat = new CronJob(`*/${argvs.interval} * * * * *`, _getAllPerformanceAndSend(argvs));
+  const stat = new CronJob(`* */${argvs.interval} * * * *`, _getAllPerformanceAndSend(argvs));
   stat.start();
 };
