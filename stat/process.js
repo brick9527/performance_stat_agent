@@ -15,10 +15,7 @@ module.exports = async function (batchId) {
     type: 'process',
     timestamp,
     batchId,
-    list: shortProcessList.map(processItem => {
-      processItem.cmd = encodeURIComponent(processItem.cmd);
-      return processItem;
-    }),
+    list: shortProcessList,
   };
 
   return processStatData;

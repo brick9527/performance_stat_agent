@@ -25,7 +25,5 @@ module.exports = async function () {
     ...cpuStatFuncList,
   ]);
 
-  console.log({ mem: memInfo, process: processInfo, cpu: cpuInfo });
-
   return { mem: memInfo, process: processInfo, cpu: cpuInfo };
 };

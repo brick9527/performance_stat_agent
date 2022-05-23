@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+process.NODE_ENV = 'production';
+
 const meow = require('meow');
 const chalk = require('chalk');
 
@@ -11,12 +13,13 @@ const cli = meow(`
   
   ${chalk.bgBlue('# 选项(Options) ')}
     --interval, -i                  性能检测时间间隔(单位: 分钟). 默认5min/次
-    --protocol                      数据传输使用协议. 可选: udp. 默认: udp
     --host, -H                      接收数据服务器host. 默认: 127.0.0.1
     --port, -p                      接收数据服务器端口
+    --protocol, -P                  数据传输使用协议. 可选: udp. 默认: udp
     --output, -o                    本地文件存储路径. 默认: /tmp
     --fileType, -f                  本地文件存储格式. 默认: txt
     --trace, -t                     实时打印采集数据
+    --format, -F                    打印格式. 可选: json, table. 默认: json
     --help, -h                      帮助
     --version, -v                   查看版本号
 

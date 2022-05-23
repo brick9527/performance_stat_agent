@@ -15,6 +15,7 @@ const argvSchema = Joi.object().keys({
   }),
   output: Joi.string().optional().default('/tmp'),
   fileType: Joi.string().optional().default('txt'),
+  format: Joi.string().optional().default('json'),
   trace: Joi.boolean().optional().default(false),
   help: Joi.boolean().required().default(false),
   version: Joi.boolean().required().default(false),
@@ -30,7 +31,9 @@ module.exports = async function (flags) {
   try {
     result = await argvSchema.validateAsync(flags);
   } catch (err) {
-    console.error(err);
+    process.NODE_ENV === 'production'
+      ? console.error(String(err) || 'Unknown Err')
+      : console.error(err);
     process.exit(-1);
   }
   return result;

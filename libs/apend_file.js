@@ -29,7 +29,7 @@ module.exports = function(argv, data) {
     targetFolder = path.join(process.cwd(), argv.output);
   }
 
-  const { cpu, mem, process } = data;
+  const { cpu, mem, process: processInfo } = data;
 
   const cpuFilePath = _generateFilePath(targetFolder, 'cpu', argv.fileType);
   const memFilePath = _generateFilePath(targetFolder, 'mem', argv.fileType);
@@ -42,5 +42,5 @@ module.exports = function(argv, data) {
   _appendFile(memFilePath, JSON.stringify(mem) + '\n');
 
   // 写入process数据
-  _appendFile(processFilePath, JSON.stringify(process) + '\n');
+  _appendFile(processFilePath, JSON.stringify(processInfo) + '\n');
 };
