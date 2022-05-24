@@ -8,6 +8,10 @@
     "lint": "./node_modules/.bin/eslint *.js",
     "commitmsg": "validate-commit-msg"
   },
+  "bin": {
+    "performance-stat-agent": "./bin/index.js",
+    "psa": "./bin/index.js"
+  },
   "author": "brick9527<brick9527@foxmail.com>",
   "license": "MIT",
   "dependencies": {
