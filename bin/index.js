@@ -12,8 +12,8 @@ const cli = meow(`
     ${chalk.green('$')} performance-stat-agent <options>
   
   ${chalk.bgBlue('# 选项(Options) ')}
-    --interval, -i                  性能检测时间间隔(单位: 分钟). 默认5min/次
-    --host, -H                      接收数据服务器host. 默认: 127.0.0.1
+    --interval, -i                  性能检测时间间隔(单位: 分钟). 例如: 5
+    --host, -H                      接收数据服务器host. 例如: 127.0.0.1
     --port, -p                      接收数据服务器端口
     --protocol, -P                  数据传输使用协议. 可选: udp. 默认: udp
     --output, -o                    本地文件存储路径. 默认: /tmp
