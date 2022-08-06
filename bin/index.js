@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-
-process.NODE_ENV = 'production';
-
+require('dotenv').config();
 const meow = require('meow');
 const chalk = require('chalk');
 
@@ -16,9 +14,9 @@ const cli = meow(`
     --host, -H                      接收数据服务器host. 例如: 127.0.0.1
     --port, -p                      接收数据服务器端口
     --protocol, -P                  数据传输使用协议. 可选: udp. 默认: udp
-    --output, -o                    本地文件存储路径. 默认: /tmp
+    --output, -o                    本地文件存储路径.
     --fileType, -f                  本地文件存储格式. 默认: txt
-    --trace, -t                     实时打印采集数据
+    --noTrace, -t                  不实时打印采集数据. 默认: false
     --format, -F                    打印格式. 可选: json, table. 默认: json
     --help, -h                      帮助
     --version, -v                   查看版本号
@@ -69,7 +67,7 @@ const cli = meow(`
       type: 'string',
       alias: 'f',
     },
-    trace: {
+    noTrace: {
       type: 'boolean',
       alias: 't',
     },

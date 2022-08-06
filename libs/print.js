@@ -1,10 +1,10 @@
 module.exports = function(argvs, ...parameter) {
-  if (!argvs.trace) {
+  if (argvs.noTrace) {
     return;
   }
 
   if (argvs.format.toLowerCase() === 'json') {
-    console.log(JSON.stringify(parameter, null, 2));
+    console.log(JSON.stringify(parameter));
     return;
   }
 

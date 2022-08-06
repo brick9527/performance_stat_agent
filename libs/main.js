@@ -10,9 +10,11 @@ module.exports = async function(cli) {
   const argvs = await checkArgv(cli.flags);
   
   process.env.argvs = argvs;
-  
+
+  process.env.NODE_ENV !== 'production' && console.log(argvs);
+    
+  // 任何参数都不传, 默认运行一次
   if (!argvs.interval) {
-    // 任何参数都不传, 默认运行一次
     const result = await getAllPerformance();
     print(argvs, result);
     appendFile(argvs, result);

@@ -13,10 +13,10 @@ const argvSchema = Joi.object().keys({
     then: Joi.number().required().min(0).max(65535),
     otherwise: Joi.forbidden(),
   }),
-  output: Joi.string().optional().default('/tmp'),
+  output: Joi.string().optional(),
   fileType: Joi.string().optional().default('txt'),
   format: Joi.string().optional().default('json'),
-  trace: Joi.boolean().optional().default(false),
+  noTrace: Joi.boolean().required().default(false),
   help: Joi.boolean().required().default(false),
   version: Joi.boolean().required().default(false),
 });
@@ -36,5 +36,6 @@ module.exports = async function (flags) {
       : console.error(err);
     process.exit(-1);
   }
+
   return result;
 };
