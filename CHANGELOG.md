@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - module `dotenv`, to require env from `.env` file.
+- table format print out.
 
 ### Fixed
 
-- use a default parameter `interval` when user didn't pass in it
+- use a default parameter `interval` when user didn't pass in it.
