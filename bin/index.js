@@ -71,6 +71,10 @@ const cli = meow(`
       type: 'boolean',
       alias: 't',
     },
+    format: {
+      type: 'string',
+      alias: 'F',
+    },
   },
 });
 
