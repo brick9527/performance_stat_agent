@@ -5,7 +5,7 @@
   "main": "bin/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "./node_modules/.bin/eslint *.js",
+    "lint": "./node_modules/.bin/eslint bin/*.js libs/*.js stat/*.js",
     "commitmsg": "validate-commit-msg"
   },
   "bin": {
