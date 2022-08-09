@@ -16,3 +16,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - use a default parameter `interval` when user didn't pass in it.
+- command doesn't support parameter `format`.
+- when output is a relative path, create folder failed.
